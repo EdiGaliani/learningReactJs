@@ -1,8 +1,10 @@
 import './App.css';
 import City from './assets/city.jpg';
+import CarDetails from './components/CarDetails';
 import CondicionalRender from './components/CondicionalRender';
 import ListRender from './components/ListRender';
 import ManageData from './components/ManageData';
+import ShowUserName from './components/ShowUserName';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
       <ManageData />
       <ListRender />
       <CondicionalRender />
+      <ShowUserName name="Edi"/>
+      <CarDetails brand="Fiat" km={120000} color="Branco"/>
     </div>
   );
 }
