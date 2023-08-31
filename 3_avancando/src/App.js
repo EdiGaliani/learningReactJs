@@ -2,6 +2,8 @@ import './App.css';
 import City from './assets/city.jpg';
 import CarDetails from './components/CarDetails';
 import CondicionalRender from './components/CondicionalRender';
+import Container from './components/Container';
+import ExecuteFunctions from './components/ExecuteFunctions';
 import Fragment from './components/Fragment';
 import ListRender from './components/ListRender';
 import ManageData from './components/ManageData';
@@ -13,6 +15,10 @@ function App() {
     {id:2, brand: "Renault", km: 12548, color: "Verde", newCar: false},
     {id:3, brand: "Fiat", km: 0, color: "Preto", newCar: true}
   ]
+
+  const showMessage = () => {
+    return console.log("Foi executado pelo pai!")
+  }
 
   return (
     <div className="App">
@@ -36,7 +42,8 @@ function App() {
       <CarDetails brand="Ford" km={18000} color="Prata" newCar={true}/>
       {/* Renderizando Lista em componentes */}
       {Cars.map((car) => (
-        <CarDetails 
+        <CarDetails
+          key={car.id} 
           brand={car.brand} 
           km={car.km} 
           color={car.color}
@@ -45,6 +52,12 @@ function App() {
       ))}
       {/* Usando Fragments */}
       <Fragment propFragment="teste"/>
+      {/* Usando Children */}
+      <Container myValue="Testing">
+        <h4>Testando o container</h4>
+      </Container>
+      {/* Função como props */}
+      <ExecuteFunctions myFunction={showMessage}/>
     </div>
   );
 }
