@@ -2,6 +2,7 @@ import './App.css';
 import City from './assets/city.jpg';
 import CarDetails from './components/CarDetails';
 import CondicionalRender from './components/CondicionalRender';
+import Fragment from './components/Fragment';
 import ListRender from './components/ListRender';
 import ManageData from './components/ManageData';
 import ShowUserName from './components/ShowUserName';
@@ -42,6 +43,8 @@ function App() {
           newCar={car.newCar} 
         />
       ))}
+      {/* Usando Fragments */}
+      <Fragment propFragment="teste"/>
     </div>
   );
 }
