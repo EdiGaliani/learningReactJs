@@ -12,10 +12,8 @@ const ListRender = () => {
 
     const deleteRandom = () => {
         const randomNumber = Math.floor(Math.random() * 5);
-        console.log(randomNumber)
 
         setUsers((prevUsers) => {
-            console.log(prevUsers)
             return prevUsers.filter((user) => randomNumber !== user.id);
         })
     }
