@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import City from './assets/city.jpg';
 import CarDetails from './components/CarDetails';
@@ -8,6 +9,9 @@ import Fragment from './components/Fragment';
 import ListRender from './components/ListRender';
 import ManageData from './components/ManageData';
 import ShowUserName from './components/ShowUserName';
+import Message from './components/Message';
+import ChangeMessageState from './components/ChangeMessageState';
+import UserDetails from './components/UserDetails';
 
 function App() {
   const Cars = [
@@ -15,6 +19,18 @@ function App() {
     {id:2, brand: "Renault", km: 12548, color: "Verde", newCar: false},
     {id:3, brand: "Fiat", km: 0, color: "Preto", newCar: true}
   ]
+
+  const Users = [
+    {id: 1, name: "Edi", age: "41", job: "Developer"},
+    {id: 2, name: "João", age: "17", job: "Contabilist"},
+    {id: 3, name: "Dione", age: "65", job: "Police man"}
+  ]
+
+  const [message, setMessage] = useState("");
+
+  const handleMessage = (msg) => {
+    setMessage(msg)
+  }
 
   const showMessage = () => {
     return console.log("Foi executado pelo pai!")
@@ -58,6 +74,18 @@ function App() {
       </Container>
       {/* Função como props */}
       <ExecuteFunctions myFunction={showMessage}/>
+      {/* State lift */}
+      <Message msg={message} />
+      <ChangeMessageState handleMsg={handleMessage} />
+      {/* Desafio 4 */}
+      {Users.map((user) => (
+        <UserDetails 
+          key={user.id}
+          name={user.name}
+          age={user.age}
+          job={user.job}
+        />
+      ))}
     </div>
   );
 }
