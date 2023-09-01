@@ -2,11 +2,19 @@ import { useState } from 'react';
 import './App.css';
 import MyComponent from './components/MyComponent';
 import Title from './components/Title';
+import Challengecss from './components/Challengecss';
 
 function App() {
   const n = 15;
   const [name] = useState("Edi");
   const redTitle = true;
+
+
+  const Cars = [
+    {id:1, brand: "Ferrari", km: 0, color: "Amarelo", newCar: true},
+    {id:2, brand: "Renault", km: 12548, color: "Verde", newCar: false},
+    {id:3, brand: "Fiat", km: 0, color: "Preto", newCar: true}
+  ]
 
 
   return (
@@ -38,6 +46,20 @@ function App() {
 
       {/* CSS Modules */}
       <Title />
+
+      {/* Challenge CSS */}
+      <div className='car-container'>
+        {Cars.map((car) => (
+          <Challengecss 
+            key={car.id}
+            brand={car.brand}
+            km={car.km}
+            color={car.color}
+            newCar={car.newCar}
+          />
+        ))}
+      </div>
+
 
     </div>
   );
